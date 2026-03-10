@@ -1,0 +1,10 @@
+import type { FetchOptions } from 'ofetch';
+import type { Strapi3Error } from '../types/v3.js';
+import type { Strapi4Error } from '../types/v4.js';
+import type { Strapi5Error } from '../types/v5.js';
+export declare const useStrapiClient: () => <T>(url: string, fetchOptions?: FetchOptions) => Promise<T>;
+declare module '#app' {
+    interface RuntimeNuxtHooks {
+        'strapi:error': (error: Strapi3Error | Strapi4Error | Strapi5Error) => void;
+    }
+}
